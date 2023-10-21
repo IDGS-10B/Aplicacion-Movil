@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EmployeeRegister.altaCurso">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Subir Video" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+
+            <Button Text="Seleccionar Video" Clicked="OnSelectVideoButtonClicked" />
+            <Label x:Name="lblSelectedVideo" Text="Ningún video seleccionado" />
+            <Button Text="Cargar Video" Clicked="OnUploadButtonClicked" />
+
+            <ListView x:Name="lstVideos" ItemSelected="lstVideos_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding FileName}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
