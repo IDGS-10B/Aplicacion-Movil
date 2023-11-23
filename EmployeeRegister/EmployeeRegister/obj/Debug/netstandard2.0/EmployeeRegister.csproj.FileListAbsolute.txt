@@ -16,3 +16,4 @@ C:\Users\yahir\Desktop\EmployeeRegister\EmployeeRegister\EmployeeRegister\Employ
 C:\Users\yahir\Desktop\EmployeeRegister\EmployeeRegister\EmployeeRegister\EmployeeRegister\obj\Debug\netstandard2.0\Administrador.xaml.g.cs
 C:\Users\yahir\Desktop\EmployeeRegister\EmployeeRegister\EmployeeRegister\EmployeeRegister\obj\Debug\netstandard2.0\Empleado.xaml.g.cs
 C:\Users\yahir\Desktop\EmployeeRegister\EmployeeRegister\EmployeeRegister\EmployeeRegister\obj\Debug\netstandard2.0\Login.xaml.g.cs
+C:\Users\yahir\Desktop\EmployeeRegister\EmployeeRegister\EmployeeRegister\EmployeeRegister\obj\Debug\netstandard2.0\altaCurso.xaml.g.cs

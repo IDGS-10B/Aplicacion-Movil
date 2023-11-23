@@ -5,32 +5,42 @@ using SQLite;
 
 namespace EmployeeRegister.Models
 {
-    public class Employee
+        public class Employee
+        {
+            [PrimaryKey, AutoIncrement]
+            public int IdEmpl { get; set; }
+
+            [MaxLength(50)]
+            public string FullName { get; set; }
+
+            public string Role { get; set; }
+            [MaxLength(5)]
+            public int EmployeeNumber { get; set; }
+            // Nuevos campos
+            [MaxLength(100)]
+            public string Address { get; set; }
+
+            [MaxLength(15)]
+            public string PhoneNumber { get; set; }
+
+            public DateTime BirthDate { get; set; }
+
+            [MaxLength(18)]
+            public string Curp { get; set; }
+        }
+
+    public class Curso
     {
         [PrimaryKey, AutoIncrement]
-        public int IdEmpl { get; set; }
+        public int IdCurso { get; set; }
 
-        [MaxLength(50)]
-        public string Name { get; set; }
-
-        [MaxLength(50)]
-        public string LastName { get; set; }
-
-        [MaxLength(50)]
-        public string MotherLastName { get; set; }
-
-        public string Role { get; set; }
-        [MaxLength(8)]
-        public int EmployeeNumber { get; set; }
-        [MaxLength(4)]
-        public string Password { get; set; }
-    }
-
-    public class Video
-    {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
         public string FileName { get; set; }
+
         public string FilePath { get; set; }
+
+
     }
+
+
+
 }

@@ -4,13 +4,16 @@
              x:Class="EmployeeRegister.Administrador">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome administrador"
+            <Label x:Name="lblWelcome" FontSize="Medium"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand" TextColor="Black"/>
 
-            <Button Text="Registrar" Clicked="clicklogin" BackgroundColor="#007bff" TextColor="White"/>
+            <Button Text="Registrar Empleados" Clicked="clicklogin" BackgroundColor="#6A1B9A" TextColor="White"/>
 
-            <Button Text="Alta curso" Clicked="clickcurso" BackgroundColor="#007bff" TextColor="White"/>
+            <Button Text="Alta curso" Clicked="clickcurso" BackgroundColor="#6A1B9A" TextColor="White"/>
+
+            <Button Text="Cerrar Sesión" Clicked="OnLogoutButtonClicked" BackgroundColor="red" TextColor="White" CornerRadius="5" />
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -2,17 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EmployeeRegister.MainPage">
-
     <StackLayout>
         <Label Text="Registro de empelados" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
-
-        
-
         <Entry x:Name="txtIdEmployee" IsVisible="False"/>
-        <Entry x:Name="txtName" Placeholder="Nombre"/>
-        <Entry x:Name="txtLastName" Placeholder="Apellido Paterno"/>
-        <Entry x:Name="txtMotherLastName" Placeholder="Apellido Materno"/>
+        <Entry x:Name="txtFullName" Placeholder="Nombre Completo"/>
 
+        <!-- Nuevos campos -->
+        <Entry x:Name="txtDirección" Placeholder="Dirección"/>
+        <Entry x:Name="txtTeléfono" Placeholder="Teléfono"/>
+        <Label Text="Fecha de Nacimiento" TextColor="Gray"/>
+        <DatePicker x:Name="txtfechanacimineto" Format="D"/>
+        <Entry x:Name="txtCurp" Placeholder="CURP"/>
+        <!-- Nuevos campos -->
+        
         <Label Text="Rol" />
         <Picker x:Name="rolePicker">
             <Picker.ItemsSource>
@@ -22,18 +24,10 @@
                 </x:Array>
             </Picker.ItemsSource>
         </Picker>
-
-
         <Entry x:Name="txtEmployeeNumber" Placeholder="Número de Empleado"  />
-
-        <Entry x:Name="txtPassword" Placeholder="Contraseña" IsPassword="True" />
-
-
-
         <Button x:Name="btnRegister" Text="Registrar Empleado" Clicked="btnRegister_Clicked"/>
         <Button x:Name="btnActualizar" Text="Actualizar" Clicked="btnActualizar_Clicked" IsVisible="False"/>
         <Button x:Name="btnEliminar" Text="Eliminar" Clicked="btnEliminar_Clicked" IsVisible="False"/>
-
         <ListView x:Name="lstEmployee" ItemSelected="lstEmployee_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -48,27 +42,27 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Label Text="{Binding IdEmpl}" Grid.Row="0" Grid.Column="0" TextColor="Green"/>
-                            <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="1" TextColor="Gray"/>
-                            <Label Text="{Binding LastName}" Grid.Row="0" Grid.Column="2" TextColor="Gray"/>
-                            <Label Text="{Binding MotherLastName}" Grid.Row="0" Grid.Column="3" TextColor="Gray"/>
+                            <Label Text="{Binding FullName}" Grid.Row="0" Grid.Column="1" TextColor="Gray"/>
+                            <Label Text="{Binding Address}" Grid.Row="0" Grid.Column="2" TextColor="Gray"/>
+                            <Label Text="{Binding PhoneNumber}" Grid.Row="0" Grid.Column="3" TextColor="Gray"/>
+                            <Label Text="{Binding BirthDate}" Grid.Row="0" Grid.Column="4" TextColor="Gray"/>
+                            <Label Text="{Binding Curp}" Grid.Row="0" Grid.Column="5" TextColor="Gray"/>
 
-                            <!-- Etiquetas para el rol, número de empleado y contraseña -->
-                            <Label Text="{Binding Role}" Grid.Row="1" Grid.Column="0" TextColor="Gray"/>
-                            <Label Text="{Binding EmployeeNumber}" Grid.Row="1" Grid.Column="1" TextColor="Gray"/>
-                            <Label Text="{Binding Password}" Grid.Row="1" Grid.Column="2" TextColor="Gray"/>
+                            <Label Text="{Binding Role}" Grid.Row="0" Grid.Column="6" TextColor="Gray"/>
+                            <Label Text="{Binding EmployeeNumber}" Grid.Row="0" Grid.Column="7" TextColor="Gray"/>
 
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
+        <!-- <Button Text="Iniciar sesión" Clicked="clicklogin" BackgroundColor="#4C20E9" TextColor="White"/> -->
         <Button Text="Iniciar sesión" Clicked="clicklogin" BackgroundColor="#4C20E9" TextColor="White"/>
-
-
     </StackLayout>
-
-
 </ContentPage>

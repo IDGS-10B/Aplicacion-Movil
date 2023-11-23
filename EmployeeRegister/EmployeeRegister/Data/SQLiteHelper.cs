@@ -16,11 +16,8 @@ namespace EmployeeRegister.Data
         {
             db = new SQLiteAsyncConnection(dbPath);
             db.CreateTableAsync<Employee>().Wait();
+            db.CreateTableAsync<Curso>().Wait();
         }
-
-        
-
-
         public Task<int> SaveEmployeeAsync(Employee employee)
         {
             if (employee.IdEmpl != 0)
@@ -32,46 +29,52 @@ namespace EmployeeRegister.Data
                 return db.InsertAsync(employee);
             }
         }
-
         public Task<List<Employee>> GetEmployeesAsync()
         {
             return db.Table<Employee>().ToListAsync();
         }
-
         public Task<Employee> GetEmployeeByIdAsync(int id)
         {
             return db.Table<Employee>().Where(a => a.IdEmpl == id).FirstOrDefaultAsync();
         }
-
         public Task<int> DeleteEmployee(Employee employee)
         {
             return db.DeleteAsync(employee);
         }
-
-        // En tu clase SQLiteHelper
         public Task<Employee> GetEmployeeByEmployeeNumberAsync(int employeeNumber)
         {
             return db.Table<Employee>().Where(a => a.EmployeeNumber == employeeNumber).FirstOrDefaultAsync();
         }
 
- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
- //     Subir Videos
-        public Task<int> SaveVideoAsync(Video video)
+
+        //     Subir Videos
+        public Task<int> SaveCursoAsync(Curso curso)
         {
-            if (video.Id != 0)
+            if (curso.IdCurso != 0)
             {
-                return db.UpdateAsync(video);
+                return db.UpdateAsync(curso);
             }
             else
             {
-                return db.InsertAsync(video);
+                return db.InsertAsync(curso);
             }
         }
 
-        public Task<List<Video>> GetVideosAsync()
+        public Task<List<Curso>> GetCursosAsync()
         {
-            return db.Table<Video>().ToListAsync();
+            return db.Table<Curso>().ToListAsync();
         }
+
+        public Task<Curso> GetCursoByIdAsync(int id)
+        {
+            return db.Table<Curso>().Where(c => c.IdCurso == id).FirstOrDefaultAsync();
+        }
+
+        public Task<int> DeleteCurso(Curso curso)
+        {
+            return db.DeleteAsync(curso);
+        }
+
 
 
     }

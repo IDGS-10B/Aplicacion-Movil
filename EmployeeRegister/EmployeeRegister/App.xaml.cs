@@ -15,8 +15,8 @@ namespace EmployeeRegister
         public App()   
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new MainPage()); // Asegúrate de usar NavigationPage aquí
+		//Cambia MainPage por Login
+            MainPage = new NavigationPage(new MainPage()); 
 
         }
 

@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "7jcG3QCJywp4xmsByae/PgFBBfhcR/zDv9+0gjMIcWQ/OMPz41GweYzLwobHhuJUPWIexBoHNxM96OJ3mvojhQ==",
+  "dgSpecHash": "/YGLWDKE+6zp4IfjYpyks+DxXjL8ztp/Qdep5DlkVbKs/ks0NqXfeGrSnXZxrJyrA5hk7wuugSkN5hQqSHlE2A==",
   "success": true,
   "projectFilePath": "C:\\Users\\yahir\\Desktop\\EmployeeRegister\\EmployeeRegister\\EmployeeRegister\\EmployeeRegister\\EmployeeRegister.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yahir\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\yahir\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\yahir\\.nuget\\packages\\plugin.mediamanager\\1.1.1\\plugin.mediamanager.1.1.1.nupkg.sha512",
+    "C:\\Users\\yahir\\.nuget\\packages\\plugin.mediamanager.forms\\1.1.1\\plugin.mediamanager.forms.1.1.1.nupkg.sha512",
     "C:\\Users\\yahir\\.nuget\\packages\\sqlite-net-pcl\\1.8.116\\sqlite-net-pcl.1.8.116.nupkg.sha512",
     "C:\\Users\\yahir\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.4\\sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",
     "C:\\Users\\yahir\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
@@ -15,8 +17,8 @@
     "C:\\Users\\yahir\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\yahir\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\yahir\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
-    "C:\\Users\\yahir\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
-    "C:\\Users\\yahir\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+    "C:\\Users\\yahir\\.nuget\\packages\\xamarin.essentials\\1.8.0\\xamarin.essentials.1.8.0.nupkg.sha512",
+    "C:\\Users\\yahir\\.nuget\\packages\\xamarin.forms\\5.0.0.2612\\xamarin.forms.5.0.0.2612.nupkg.sha512"
   ],
   "logs": []
 }

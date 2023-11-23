@@ -4,9 +4,28 @@
              x:Class="EmployeeRegister.Empleado">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome Empleado"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="lblWelcome" FontSize="Medium"
+           VerticalOptions="CenterAndExpand" 
+           HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <ListView x:Name="lstCursos">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding FileName}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Button Text="Reproducir Curso" Clicked="OnReproducirClicked" />
+            </StackLayout>
+
+            <Button Text="Cerrar Sesión" Clicked="OnLogoutButtonClicked" BackgroundColor="red" TextColor="White" CornerRadius="5" />
         </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>

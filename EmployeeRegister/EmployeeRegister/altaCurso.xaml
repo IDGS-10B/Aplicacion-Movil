@@ -4,24 +4,32 @@
              x:Class="EmployeeRegister.altaCurso">
     <ContentPage.Content>
         <StackLayout Padding="20">
-            <Label Text="Subir Video" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+            <Entry x:Name="txtIdCurso" IsVisible="False"/>
 
-            <Button Text="Seleccionar Video" Clicked="OnSelectVideoButtonClicked" />
-            <Label x:Name="lblSelectedVideo" Text="Ningún video seleccionado" />
-            <Button Text="Cargar Video" Clicked="OnUploadButtonClicked" />
+            <Button Text="Seleccionar Curso" Clicked="OnSelectVideoButtonClicked" />
+            <Label x:Name="lblSelectedVideo" Text="Ningún Curso seleccionado" />
+            <Button Text="Subir Curso" Clicked="OnUploadButtonClicked" />
 
             <ListView x:Name="lstVideos" ItemSelected="lstVideos_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout>
-                                <Label Text="{Binding FileName}" />
-                            </StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding IdCurso}" Grid.Row="0" Grid.Column="0" TextColor="Green"/>
+                                <Label Text="{Binding FileName}" Grid.Row="0" Grid.Column="1" TextColor="Gray"/>
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
 
         </StackLayout>
     </ContentPage.Content>

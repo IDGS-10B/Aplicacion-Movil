@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-
 namespace EmployeeRegister
 {
     public partial class MainPage : ContentPage
@@ -16,56 +15,24 @@ namespace EmployeeRegister
             InitializeComponent();
             llenarDatos();
         }
-       
-
-
-
-        /*private async void btnRegister_Clicked(object sender, EventArgs e)
-        {
-            if (ValidarDatos())
-            {
-                Employee employee = new Employee
-                {
-                    Name = txtName.Text,
-                    LastName = txtLastName.Text,
-                    MotherLastName = txtMotherLastName.Text,
-
-                };
-
-                await App.SQLiteDB.SaveEmployeeAsync(employee);
-
-
-              
-                CleanControlls();
-                llenarDatos();
-
-                await DisplayAlert("Registro", "Se guardo de manera existosa", "OK");
-            }
-            else
-            {
-                await DisplayAlert("Aviso", "Ingresa todos los datos", "OK");
-            }
-        }*/
-
         private async void btnRegister_Clicked(object sender, EventArgs e)
         {
             if (ValidarDatos())
             {
                 Employee employee = new Employee
                 {
-                    Name = txtName.Text,
-                    LastName = txtLastName.Text,
-                    MotherLastName = txtMotherLastName.Text,
+                    FullName = txtFullName.Text,
                     Role = rolePicker.SelectedItem.ToString(), // Obtener el rol seleccionado del Picker
                     EmployeeNumber = Convert.ToInt32(txtEmployeeNumber.Text), // Convertir a int
-                    Password = txtPassword.Text
+
+                    Address = txtDirección.Text, // Nuevo campo
+                    PhoneNumber = txtTeléfono.Text, // Nuevo campo
+                    BirthDate = txtfechanacimineto.Date, // Nuevo campo
+                    Curp = txtCurp.Text // Nuevo campo
                 };
-
                 await App.SQLiteDB.SaveEmployeeAsync(employee);
-
-                CleanControlls();
-                llenarDatos();
-
+                    CleanControlls();
+                    llenarDatos();
                 await DisplayAlert("Registro", "Se guardó de manera exitosa", "OK");
             }
             else
@@ -73,11 +40,6 @@ namespace EmployeeRegister
                 await DisplayAlert("Aviso", "Ingresa todos los datos", "OK");
             }
         }
-
-
-
-
-
         public async void llenarDatos()
         {
             var EmployeeList = await App.SQLiteDB.GetEmployeesAsync();
@@ -86,82 +48,54 @@ namespace EmployeeRegister
                 lstEmployee.ItemsSource = EmployeeList;
             }
         }
-
-
-
-
-        /*public bool ValidarDatos()
-        {
-          bool respuesta;
-        if (string.IsNullOrEmpty(txtName.Text))
-        {
-          respuesta = false;
-        }
-        else if (string.IsNullOrEmpty(txtLastName.Text))
-          {
-          respuesta = false;
-        }
-        else if (string.IsNullOrEmpty(txtMotherLastName.Text))
-        {
-          respuesta = false;
-        }
-        else
-        {
-          respuesta = true;
-        }
-        return respuesta;
-        }*/
-
         public bool ValidarDatos()
         {
             bool respuesta = true;
-
             // Validar Nombre
-            if (string.IsNullOrEmpty(txtName.Text))
+            if (string.IsNullOrEmpty(txtFullName.Text))
             {
                 respuesta = false;
                 DisplayAlert("Aviso", "El nombre es requerido", "OK");
             }
-
-            // Validar Apellido Paterno
-            if (string.IsNullOrEmpty(txtLastName.Text))
-            {
-                respuesta = false;
-                DisplayAlert("Aviso", "El apellido paterno es requerido", "OK");
-            }
-
-            // Validar Apellido Materno
-            if (string.IsNullOrEmpty(txtMotherLastName.Text))
-            {
-                respuesta = false;
-                DisplayAlert("Aviso", "El apellido materno es requerido", "OK");
-            }
-
             // Validar Rol
             if (rolePicker.SelectedItem == null)
             {
                 respuesta = false;
                 DisplayAlert("Aviso", "Por favor selecciona un rol", "OK");
             }
-
             // Validar Número de Empleado
-            if (string.IsNullOrEmpty(txtEmployeeNumber.Text) || !int.TryParse(txtEmployeeNumber.Text, out int employeeNumber) || employeeNumber.ToString().Length != 8)
+            if (string.IsNullOrEmpty(txtEmployeeNumber.Text) || !int.TryParse(txtEmployeeNumber.Text, out int employeeNumber) || employeeNumber.ToString().Length != 5)
             {
                 respuesta = false;
-                DisplayAlert("Aviso", "El número de empleado debe ser un número de 8 dígitos", "OK");
+                DisplayAlert("Aviso", "El número de empleado debe ser un número de 5 dígitos", "OK");
+            }
+            
+           
+
+            if (string.IsNullOrEmpty(txtDirección.Text))
+            {
+                respuesta = false;
+                DisplayAlert("Aviso", "La direccion es requerida", "OK");
+            }
+            if (string.IsNullOrEmpty(txtTeléfono.Text))
+            {
+                respuesta = false;
+                DisplayAlert("Aviso", "El telefono es requerida", "OK");
+            }
+            if (txtfechanacimineto.Date == null || txtfechanacimineto.Date == DateTime.MinValue)
+            {
+                respuesta = false;
+                DisplayAlert("Aviso", "La fecha de nacimiento es requerida", "OK");
             }
 
-            // Validar Contraseña
-            if (string.IsNullOrEmpty(txtPassword.Text))
+            if (string.IsNullOrEmpty(txtCurp.Text))
             {
                 respuesta = false;
-                DisplayAlert("Aviso", "La contraseña es requerida", "OK");
+                DisplayAlert("Aviso", "El CURP es requerida", "OK");
             }
 
             return respuesta;
         }
-
-
         private async void btnActualizar_Clicked(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtIdEmployee.Text))
@@ -169,13 +103,14 @@ namespace EmployeeRegister
                 Employee employee = new Employee()
                 {
                     IdEmpl = Convert.ToInt32(txtIdEmployee.Text),
-                    Name = txtName.Text,
-                    LastName = txtLastName.Text,
-                    MotherLastName = txtMotherLastName.Text,
+                    FullName = txtFullName.Text,
                     Role = rolePicker.SelectedItem.ToString(), // Obtener el rol seleccionado del Picker
                     EmployeeNumber = Convert.ToInt32(txtEmployeeNumber.Text), // Agregar número de empleado
-                    Password = txtPassword.Text // Agregar contraseña
 
+                    Address = txtDirección.Text, // Nuevo campo
+                    PhoneNumber = txtTeléfono.Text, // Nuevo campo
+                    BirthDate = txtfechanacimineto.Date, // Nuevo campo
+                    Curp = txtCurp.Text // Nuevo campo
                 };
 
                 await App.SQLiteDB.SaveEmployeeAsync(employee);
@@ -189,7 +124,6 @@ namespace EmployeeRegister
             }
         }
 
-
         private async void lstEmployee_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var obj = (Employee)e.SelectedItem;
@@ -200,21 +134,17 @@ namespace EmployeeRegister
                 txtIdEmployee.IsVisible = true;
                 btnActualizar.IsVisible = true;
                 btnEliminar.IsVisible = true;
-
                 txtIdEmployee.Text = obj.IdEmpl.ToString();
-                txtName.Text = obj.Name;
-                txtLastName.Text = obj.LastName;
-                txtMotherLastName.Text = obj.MotherLastName;
-
+                txtFullName.Text = obj.FullName;
                 rolePicker.SelectedItem = obj.Role; // Establece el rol seleccionado en el Picker
-
                 txtEmployeeNumber.Text = obj.EmployeeNumber.ToString(); // Establece el número de empleado
-                txtPassword.Text = obj.Password; // Establece la contraseña
+
+                txtDirección.Text = obj.Address;
+                txtTeléfono.Text = obj.PhoneNumber;
+                txtfechanacimineto.Date = obj.BirthDate;
+                txtCurp.Text = obj.Curp;
             }
         }
-
-
-
         private async void btnEliminar_Clicked(object sender, EventArgs e)
         {
             var employee = await App.SQLiteDB.GetEmployeeByIdAsync(Convert.ToInt32(txtIdEmployee.Text));
@@ -231,24 +161,22 @@ namespace EmployeeRegister
                 btnEliminar.IsVisible = false;
                 btnRegister.IsVisible = true;
             }
-
         }
-
         private void CleanControlls()
         {
             txtIdEmployee.Text = "";
-            txtName.Text = "";
-            txtLastName.Text = "";
-            txtMotherLastName.Text = "";
+            txtFullName.Text = "";
             rolePicker.SelectedIndex = -1; // Desseleccionar todos los elementos
             txtEmployeeNumber.Text = ""; // Limpiar campo de número de empleado
-            txtPassword.Text = ""; // Limpiar campo de contraseña
-        }
 
+            txtDirección.Text = "";
+            txtTeléfono.Text = "";
+            txtfechanacimineto.Date = DateTime.Now; // Asignar un valor por defecto o nulo a la fecha de nacimiento
+            txtCurp.Text = "";
+        }
         private async void clicklogin(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Login());
         }
-
     }
 }
